@@ -1,2 +1,4 @@
-asyncpraw==7.2.0
-discord==1.7.1
+discord.py
+aiohttp
+websockets
+chardet
