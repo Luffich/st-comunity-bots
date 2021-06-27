@@ -236,4 +236,4 @@ async def say(ctx, *, message):
 
     await ctx.send(embed=emb)
 
-Bot.run("ODU4NzEzNjcyNjkxODc1ODUw.YNiJbQ.Eco7R8IS6nHWGkbb53BpcuwkkIk")
+Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
