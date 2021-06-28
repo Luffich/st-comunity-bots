@@ -9,9 +9,24 @@ from discord.ext import commands
 from asyncio import TimeoutError
 import datetime
 import json
+import nekos
+import time
+
 
 Bot = commands.Bot(command_prefix="#")
 Bot.remove_command('help')
+
+def is_nsfw():
+    async def predicate(ctx):
+        return ctx.channel.is_nsfw()
+    return commands.check(predicate)
+
+@Bot.command()
+@is_nsfw()
+async def cum(ctx):
+    emb = discord.Embed(color=0xebebeb)
+    emb.set_image(url=nekos.img('cum'))
+    await ctx.send(embed=emb)
 
 
 @Bot.command()
@@ -284,6 +299,5 @@ async def help(ctx):
     emb.add_field( name =':dagger:    | `{}info`'.format( "#" ), value = '**Информация о пользователе.**')
     emb.add_field( name =':knife:    | `{}say`'.format( "#" ), value = '**Сообщение от имени бота.**')
     await ctx.send(embed=emb)
-
 
 Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
