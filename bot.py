@@ -11,6 +11,8 @@ import datetime
 import json
 
 Bot = commands.Bot(command_prefix="#")
+Bot.remove_command('help')
+
 
 @Bot.command()
 async def actions(ctx):
@@ -30,6 +32,7 @@ async def actions(ctx):
 
 @Bot.command()
 async def hug(ctx, member: discord.Member):
+    await ctx.message.delete()
     huggg = ['https://i.some-random-api.ml/zSKMG85bIg.gif', 'https://acegif.com/wp-content/gif/anime-hug-20.gif', 'https://acegif.com/wp-content/gif/anime-hug-83.gif', 'https://pa1.narvii.com/6392/c5365d892718425ea58371b8d4e6fc64e29f6902_hq.gif', 'https://anime-chan.me/uploads/posts/2014-09/1411477272_jinsei-episode12-omake-6.gif']
 
     embed = discord.Embed(color = 0xff9900, title = 'Обнятие.')
@@ -40,6 +43,7 @@ async def hug(ctx, member: discord.Member):
 
 @Bot.command()
 async def pat(ctx, member: discord.Member):
+    await ctx.message.delete()
     patt = ['https://i.some-random-api.ml/eT58KYZl8I.gif', 'https://pa1.narvii.com/6390/65b91c940fecd2659b194c51351950358cb9d047_hq.gif', 'https://kinogud.files.wordpress.com/2019/08/original.gif']
 
     embed = discord.Embed(color = 0xff9900, title = 'Погладить.')
@@ -49,6 +53,7 @@ async def pat(ctx, member: discord.Member):
 
 @Bot.command()
 async def wink(ctx, member: discord.Member):
+    await ctx.message.delete()
     winkk =('https://i.some-random-api.ml/yoPiQCP6DM.gif', 'https://i.gifer.com/4Z2R.gif', 'https://pa1.narvii.com/6389/da61d5d8b4bc7b8fa5f5da49016b4d9c5a1a1893_hq.gif')
     
     embed = discord.Embed(color = 0xff9900, title = 'Подмигивать.')
@@ -58,6 +63,7 @@ async def wink(ctx, member: discord.Member):
 
 @Bot.command()
 async def tickle(ctx, member: discord.Member):
+    await ctx.message.delete()
     tickkle = ['https://i.gifer.com/KVjQ.gif', 'https://i.gifer.com/O4QR.gif', 'https://66.media.tumblr.com/e6d1a1cd2499e37f14118a75d5e36da4/tumblr_og7p24fa3R1vpbklao6_500.gifv']
 
     embed = discord.Embed(color = 0xff9900, title = 'Пощекотать.')
@@ -66,6 +72,7 @@ async def tickle(ctx, member: discord.Member):
     await ctx.send(embed = embed) 
 @Bot.command()
 async def cuddle(ctx, member: discord.Member):
+    await ctx.message.delete()
     cuddlee = ['https://data.whicdn.com/images/241295638/original.gif', 'https://im0-tub-ru.yandex.net/i?id=26fa1e1f6e191b598ce4148c6bab699e-srl&n=13']
 
     embed = discord.Embed(color = 0xff9900, title = 'Прижаться.')
@@ -75,6 +82,7 @@ async def cuddle(ctx, member: discord.Member):
 
 @Bot.command()
 async def slap(ctx, member: discord.Member):
+    await ctx.message.delete()
     slappp = ['https://i.gifer.com/79zo.gif', 'https://safebooru.org/images/1882/605143df221803e99f3b5423f1df4c8b76bd8ae9.gif?1964756', 'https://i.kym-cdn.com/photos/images/original/001/040/951/73e.gif']
 
     embed = discord.Embed(color = 0xff9900, title = 'Пощечина.')
@@ -84,6 +92,7 @@ async def slap(ctx, member: discord.Member):
 
 @Bot.command()
 async def kiss(ctx, member: discord.Member):
+    await ctx.message.delete()
     kisss = ['https://data.whicdn.com/images/294084710/original.gif', 'https://im0-tub-ru.yandex.net/i?id=891bd2b6228afa51bd76bc2c61050a17&n=13']
 
     embed = discord.Embed(color = 0xff9900, title = 'Поцеловать.')
@@ -93,6 +102,7 @@ async def kiss(ctx, member: discord.Member):
 
 @Bot.command()
 async def sex(ctx, member: discord.Member):
+    await ctx.message.delete()
     sexx = ['https://erogif.ru/wp-content/uploads/2020/04/Hentaj-porno-anime-gifki-anal-ebut-v-popu-12.gif']
     embed = discord.Embed(color = 0xff9900, title = 'Sexy.')
     embed.description = f"{ctx.author.mention} выкимал(а) {member.mention}."
@@ -101,6 +111,7 @@ async def sex(ctx, member: discord.Member):
 
 @Bot.command()
 async def otsos(ctx, member: discord.Member):
+    await ctx.message.delete()
     otsoss = ['', 'https://media.discordapp.net/attachments/851844222046961705/858753450074832896/image0.jpg', 'https://media.discordapp.net/attachments/851844222046961705/858752299298848798/image0.jpg']
 
     embed = discord.Embed(color = 0xff9900, title = 'Высунул и.')
@@ -110,6 +121,7 @@ async def otsos(ctx, member: discord.Member):
 
 @Bot.command()
 async def otliz(ctx, member: discord.Member):
+    await ctx.message.delete()
     otlizz = ['https://i.imgur.com/7dPB1Zt.gif']
 
     embed = discord.Embed(color = 0xff9900, title = 'Лизнул(а).')
@@ -120,6 +132,7 @@ async def otliz(ctx, member: discord.Member):
 @Bot.command(aliases=['бан'])
 @commands.has_permissions(view_audit_log=True)
 async def ban(ctx, member: discord.Member, *, reason=None):
+    await ctx.message.delete()
     await member.ban(reason = reason)
     colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969] #цвет в формате 0xHEX
     emb = discord.Embed(title=f':octagonal_sign: | Блокировка Пользователя __{member.name}__',description=f'\n:red_square: **Подробная информация про бан:**',color = random.choice(colours5))
@@ -136,6 +149,7 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 @Bot.command(aliases=['кик'])
 @commands.has_permissions(view_audit_log=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
+    await ctx.message.delete()
     await member.kick(reason = reason)
     colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969] #цвет в формате 0xHEX
     emb = discord.Embed(title=f':octagonal_sign: | Кик Пользователя __{member.name}__',description=f'\n:red_square: **Подробная информация про Кик:**',color = random.choice(colours5))
@@ -152,6 +166,7 @@ async def kick(ctx, member: discord.Member, *, reason=None):
 @Bot.command()
 @commands.has_permissions(view_audit_log=True)
 async def mute(ctx,member:discord.Member,time:int,reason):
+    await ctx.message.delete()
     colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969] #цвет в формате 0xHEX
     muterole = discord.utils.get(ctx.guild.roles,id=858397358415675442)
     emb = discord.Embed(title=f':octagonal_sign: | Мут Пользователя __{member.name}__',description=f'\n:red_square: **Подробная информация про мут:**',color = random.choice(colours5))
@@ -169,8 +184,22 @@ async def mute(ctx,member:discord.Member,time:int,reason):
     await member.remove_roles(muterole)
 
 @Bot.command()
+async def unban(ctx,*,member):
+    await ctx.message.delete()
+    banned_users=await ctx.guild.bans()
+    member_name, member_discriminator=member.split('#')
+    for ban_entry in banned_users:
+        user=ban_entry.user
+        if (user.name, user.discriminator)==(member_name,member_discriminator):
+            await ctx.guild.unban(user)
+            await ctx.send(f'Разбанен {user}')
+            return
+
+
+@Bot.command()
 @commands.has_permissions(view_audit_log=True)
-async def unmute(ctx,member:discord.Member,time:int,reason):
+async def unmute(ctx,member:discord.Member,reason):
+    await ctx.message.delete()
     channel = Bot.get_channel(858405446510575666)
     muterole = discord.utils.get(ctx.guild.roles,id=858397358415675442)
     emb = discord.Embed(title="Анмут",color=0x2f3136)
@@ -184,7 +213,7 @@ async def unmute(ctx,member:discord.Member,time:int,reason):
 
 @Bot.event
 async def on_ready():
-    print("Бот запустился")
+    print("Бот ахуенно работает бро!")
     await Bot.change_presence(status=discord.Status.idle,activity=Activity(name="за читерамы.",type=ActivityType.watching))
 
 @Bot.command()
@@ -195,10 +224,11 @@ async def clear(ctx,amount=10):
 @Bot.command()
 async def info(ctx,member:discord.Member):
     emb = discord.Embed(title='Информация о пользователе',color=0x2f3136)
-    emb.add_field(name="Когда присоединился:",value=member.joined_at,inline=False)
     emb.add_field(name='Имя',value=member.display_name,inline=False)
+    emb.add_field(name="Когда присоединился:",value=member.joined_at.strftime('%d.%m.%Y %H:%M:%S'),inline=False)
     emb.add_field(name='Айди:',value=member.id,inline=False)
     emb.add_field(name='Аккаунт был создан:',value=member.created_at.strftime("%d.%m.%Y %H:%M:%S"),inline=False)
+    emb.add_field(name='Самая высокая роль:',value=member.top_role.mention,inline=False)
     emb.set_thumbnail(url=member.avatar_url)
     emb.set_footer(text=f"Вызвано: {ctx.message.author}",icon_url=ctx.message.author.avatar_url)
     emb.set_author(name=ctx.message.author,icon_url=ctx.message.author.avatar_url)
@@ -231,9 +261,29 @@ async def _8ball(ctx, *, question: str = None):
 @Bot.command()
 async def say(ctx, *, message):
     await ctx.message.delete()
-    emb = discord.Embed(title='📌| Cообщение', description=message, color=discord.Color.green())
+    emb = discord.Embed(title='📌  | Cообщение', description=message, color=discord.Color.green())
     emb.set_author(name=ctx.author.name, icon_url = ctx.author.avatar_url)
 
     await ctx.send(embed=emb)
 
-Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
+@Bot.command(pass_context = True)
+
+async def help(ctx):
+    await ctx.message.delete()
+    emb = discord.Embed(title=':compass:    |   Навигация по командам.',color=0x2f3136)
+    emb.set_footer(text=f'| Вызвано: {ctx.author.name}', icon_url= ctx.author.avatar_url)
+    emb.set_author(name= ctx.author.name, icon_url = ctx.author.avatar_url)
+    emb.add_field( name =':people_wrestling:    | `{}actions`'.format( "#" ), value = '**RolePlay.**')
+    emb.add_field( name =':ring:    | `{}ban`'.format( "#" ), value = '**Ограничение доступа к серверу.**')
+    emb.add_field( name =':drum:    | `{}unban`'.format( "#" ), value = '**Удаления ограничения к серверу.**')
+    emb.add_field( name =':beginner:    | `{}kick`'.format( "#" ), value = '**Выгнать с сервера.**')
+    emb.add_field( name =':mountain_snow:    | `{}clear`'.format( "#" ), value = '**Очистить чат.**')
+    emb.add_field( name =':notebook:    | `{}mute`'.format( "#" ), value = '**Ограничение к чату сервера.**')
+    emb.add_field( name =':smoking:    | `{}unmute`'.format( "#" ), value = '**Удаления ограничения к чату сервера.**')
+    emb.add_field( name =':crossed_swords:    | `{}pravda`'.format( "#" ), value = '**Правда либо Не Правда.**')
+    emb.add_field( name =':dagger:    | `{}info`'.format( "#" ), value = '**Информация о пользователе.**')
+    emb.add_field( name =':knife:    | `{}say`'.format( "#" ), value = '**Сообщение от имени бота.**')
+    await ctx.send(embed=emb)
+
+
+Bot.run("ODU4NzEzNjcyNjkxODc1ODUw.YNiJbQ.Eco7R8IS6nHWGkbb53BpcuwkkIk")
