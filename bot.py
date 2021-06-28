@@ -16,19 +16,6 @@ import time
 Bot = commands.Bot(command_prefix="#")
 Bot.remove_command('help')
 
-def is_nsfw():
-    async def predicate(ctx):
-        return ctx.channel.is_nsfw()
-    return commands.check(predicate)
-
-@Bot.command()
-@is_nsfw()
-async def cum(ctx):
-    emb = discord.Embed(color=0xebebeb)
-    emb.set_image(url=nekos.img('cum'))
-    await ctx.send(embed=emb)
-
-
 @Bot.command()
 async def actions(ctx):
     emb = discord.Embed(title='Действия')
