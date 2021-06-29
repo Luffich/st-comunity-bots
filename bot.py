@@ -321,26 +321,4 @@ async def help(ctx):
     emb.add_field( name =':knife:    | `{}say`'.format( "#" ), value = '**Сообщение от имени бота.**')
     await ctx.send(embed=emb)
 
-@Bot.command()
-async def gey( ctx ):
-    await ctx.message.delete()
-    await ctx.author.send(f'{ ctx.author.mention }, Ты гей ебанный, ХАХАХАХХААХХАХА')
-
-@Bot.command()
-async def hello( ctx, member: discord.Member ):
-    await ctx.message.delete()
-    await member.send( f'{ member.mention }, привет от { ctx.author.mention }')
-
-@Bot.command()
-@commands.has_permissions(administrator = True)
-async def jertva( ctx, member: discord.Member ):
-    await member.send( f'{ member.mention }, алё хуесос тебя зовёт очень крутой человек { ctx.author.mention }')
-    await ctx.message.delete()
-
-@Bot.command()
-@commands.has_permissions(administrator = True)
-async def love( ctx, member: discord.Member ):
-    await member.send( f'{ member.mention }, Я тебя люблю кисочка моя :heart:')
-    await ctx.message.delete()
-
 Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
