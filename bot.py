@@ -1,3 +1,4 @@
+
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
@@ -10,7 +11,6 @@ from asyncio import TimeoutError
 import datetime, pyowm
 import json
 from discord.utils import get
-import youtube_dl
 from random import randint, choice
 
 import os
@@ -18,7 +18,7 @@ from time import sleep
 import requests
 
 
-Bot = commands.Bot(command_prefix="!")
+Bot = commands.Bot(command_prefix="#")
 Bot.remove_command('help')
 
 @Bot.command()
@@ -358,6 +358,5 @@ async def music(ctx):
     emb.add_field( name = ':orange_square:    | `{}summon`'.format( "#" ), value = '**Переместить бота.**')
     emb.add_field( name = ':white_large_square:    | `{}queue`'.format( "#" ), value = '**Очередь.**')
     await ctx.send(embed=emb)
-
 
 Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
