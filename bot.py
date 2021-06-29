@@ -343,19 +343,4 @@ async def love( ctx, member: discord.Member ):
     await member.send( f'{ member.mention }, Я тебя люблю кисочка моя :heart:')
     await ctx.message.delete()
 
-@Bot.command()
-async def music(ctx):
-    await ctx.message.delete()
-    emb = discord.Embed(title=':musical_note:    |   Музыка.',color=0x2f3136)
-    emb.set_footer(text=f'| Вызвано: {ctx.author.name}', icon_url= ctx.author.avatar_url)
-    emb.set_author(name= ctx.author.name, icon_url = ctx.author.avatar_url)
-    emb.add_field( name = ':yellow_square:    | `{}play`'.format( "#" ), value = '**Включить песню.**')
-    emb.add_field( name = ':blue_square:    | `{}stop`'.format( "#" ), value = '**Выключить песню..**')
-    emb.add_field( name = ':green_square:    | `{}skip`'.format( "#" ), value = '**Скипнуть песню которая играет.**')
-    emb.add_field( name = ':purple_square:    | `{}playing`'.format( "#" ), value = '**Посмотреть что сейчас играет.**')
-    emb.add_field( name = ':brown_square:    | `{}volume`'.format( "#" ), value = '**Изменить громкость.**')
-    emb.add_field( name = ':orange_square:    | `{}summon`'.format( "#" ), value = '**Переместить бота.**')
-    emb.add_field( name = ':white_large_square:    | `{}queue`'.format( "#" ), value = '**Очередь.**')
-    await ctx.send(embed=emb)
-
 Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
