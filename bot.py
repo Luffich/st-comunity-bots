@@ -9,6 +9,7 @@ from discord.ext import commands
 from asyncio import TimeoutError
 import datetime, pyowm
 import json
+import nekos
 from discord.utils import get
 
 import os
