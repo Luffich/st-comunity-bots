@@ -6,3 +6,4 @@ asyncio
 requests
 datetime
 pyowm
+nekos
