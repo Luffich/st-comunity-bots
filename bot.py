@@ -16,7 +16,7 @@ from time import sleep
 import requests
 
 
-Bot = commands.Bot(command_prefix="!")
+Bot = commands.Bot(command_prefix="#")
 Bot.remove_command('help')
 
 @Bot.command()
