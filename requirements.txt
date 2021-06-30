@@ -3,7 +3,6 @@ aiohttp
 websockets
 chardet
 asyncio
-os
 requests
 datetime
 pyowm
