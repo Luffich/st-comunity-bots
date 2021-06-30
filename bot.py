@@ -11,6 +11,11 @@ import datetime, pyowm
 import json
 from discord.utils import get
 
+import os
+from time import sleep
+import requests
+
+
 Bot = commands.Bot(command_prefix="#")
 Bot.remove_command('help')
 
