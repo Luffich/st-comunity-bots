@@ -19,6 +19,19 @@ import requests
 Bot = commands.Bot(command_prefix="#")
 Bot.remove_command('help')
 
+Arguments = ['feet', 'yuri', 'trap', 'futanari', 'hololewd', 'lewdkemo', 'solog', 'feetg', 'cum', 'erokemo', 'les', 'wallpaper', 'lewdk', 'ngif', 'tickle', 'lewd', 'feed', 'gecg', 'eroyuri', 'eron', 'cum_jpg', 'bj', 'nsfw_neko_gif', 'solo', 'kemonomimi', 'nsfw_avatar', 'gasm', 'poke', 'anal', 'slap', 'hentai', 'avatar', 'erofeet', 'holo', 'keta', 'blowjob', 'pussy', 'tits', 'holoero', 'lizard', 'pussy_jpg', 'pwankg', 'classic', 'kuni', 'waifu', 'pat', '8ball', 'kiss', 'femdom', 'neko', 'spank', 'cuddle', 'erok', 'fox_girl', 'boobs', 'random_hentai_gif', 'smallboobs', 'hug', 'ero', 'smug', 'goose', 'baka', 'woof']
+def is_nsfw():
+    async def predicate(ctx):
+        return ctx.channel.is_nsfw()
+    return commands.check(predicate)
+
+@Bot.command()
+@is_nsfw()
+async def cum(ctx):
+    emb = discord.Embed(color=0xebebeb)
+    emb.set_image(url=nekos.img('cum'))
+    await ctx.send(embed=emb)
+
 @Bot.command()
 async def actions(ctx):
     colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969]
