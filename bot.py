@@ -339,7 +339,7 @@ async def jertva( ctx, member: discord.Member ):
 @Bot.command()
 @commands.has_permissions(administrator = True)
 async def love( ctx, member: discord.Member ):
-    await member.send( f'{ member.mention }, Я тебя люблю кисочка моя :heart:')
+    await member.send( f'{ member.mention }, Я тебя люблю кисочка моя :heart: от { ctx.author.mention }')
     await ctx.message.delete()
 
 @Bot.command()
@@ -357,4 +357,4 @@ async def music(ctx):
     emb.add_field( name = ':white_large_square:    | `{}queue`'.format( "#" ), value = '**Очередь.**')
     await ctx.send(embed=emb)
 
-Bot.run("ODU4NzEzNjcyNjkxODc1ODUw.YNiJbQ.Eco7R8IS6nHWGkbb53BpcuwkkIk")
+Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
