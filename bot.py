@@ -46,7 +46,7 @@ async def actions(ctx):
     emb.add_field( name = '`{}slap`'.format( "#" ), value = 'Пощечина.')
     emb.add_field( name = '`{}wink`'.format( "#" ), value = 'Подмигнуть.')
     emb.add_field( name = '`{}sex`'.format( "#" ), value = 'Занятся сексом.')
-    emb.add_field( name = '`{}otsos`'.format( "#" ), value = 'Отсосать.')
+    emb.add_field( name = '`{}vrot`'.format( "#" ), value = 'Дать в рот.')
     emb.add_field( name = '`{}otliz`'.format( "#" ), value = 'Лизнуть.')
     emb.add_field( name = '`{}smoke`'.format( "#" ), value = 'Курить.')
     emb.add_field( name = '`{}hello`'.format( "#" ), value = 'Передать привет через бота в ЛС.')
@@ -141,14 +141,14 @@ async def sex(ctx, member: discord.Member):
     await ctx.send(embed = embed)
 
 @Bot.command()
-async def otsos(ctx, member: discord.Member):
+async def vrot(ctx, member: discord.Member):
     colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969]
     await ctx.message.delete()
-    otsoss = ['', 'https://media.discordapp.net/attachments/851844222046961705/858753450074832896/image0.jpg', 'https://media.discordapp.net/attachments/851844222046961705/858752299298848798/image0.jpg']
+    vrott = ['', 'https://media.discordapp.net/attachments/851844222046961705/858753450074832896/image0.jpg', 'https://media.discordapp.net/attachments/851844222046961705/858752299298848798/image0.jpg']
 
     embed = discord.Embed(color = random.choice(colours5), title = 'Высунул и.')
     embed.description = f"{ctx.author.mention} дал в ротик {member.mention}."
-    embed.set_image(url = random.choice(otsoss))
+    embed.set_image(url = random.choice(vrott))
     await ctx.send(embed = embed)
 
 @Bot.command()
