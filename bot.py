@@ -134,7 +134,7 @@ async def kiss(ctx, member: discord.Member):
 async def sex(ctx, member: discord.Member):
     colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969]
     await ctx.message.delete()
-    sexx = ['https://erogif.ru/wp-content/uploads/2020/04/Hentaj-porno-anime-gifki-anal-ebut-v-popu-12.gif']
+    sexx = ['https://erogif.ru/wp-content/uploads/2020/04/Hentaj-porno-anime-gifki-anal-ebut-v-popu-12.gif', 'https://images-ext-1.discordapp.net/external/eOp5lNxwwNY1QZCc-PZnCFdptfY24qf9axDqyoqKn84/https/cdn.nekos.life/cum/Cum_114.gif', 'https://images-ext-1.discordapp.net/external/CfEwRVLWN-fk0j5Y5APrA4a9BtUGUoQ72OHpE4GjJRw/https/cdn.nekos.life/cum/Cum_162.gif']
     embed = discord.Embed(color = random.choice(colours5), title = 'Sexy.')
     embed.description = f"{ctx.author.mention} выкимал(а) {member.mention}."
     embed.set_image(url = random.choice(sexx)) 
