@@ -283,7 +283,20 @@ async def info(ctx,member:discord.Member):
     await ctx.send(embed = emb)
 
 @Bot.command(name="pravda")
-async def _8ball(ctx, *, question: str = None):
+async def _8ball(ctx, *, question: str = None,):
+    message = await ctx.send("Проверяем правдивость")
+    await message.edit(content=f"Проверяем правда ли это... 0 %")
+    await message.edit(content=f"Проверяем правда ли это... 5 %")
+    await message.edit(content=f"Проверяем правда ли это... 14 %")
+    await message.edit(content=f"Проверяем правда ли это... 22 %")
+    await message.edit(content=f"Проверяем правда ли это... 42 %")
+    await message.edit(content=f"Проверяем правда ли это... 52 %")
+    await message.edit(content=f"Проверяем правда ли это... 68 %")
+    await message.edit(content=f"Проверяем правда ли это... 84 %")
+    await message.edit(content=f"Проверяем правда ли это... 92 %")
+    await message.edit(content=f"Проверяем правда ли это... 98 %")
+    await message.edit(content=f"Проверяем правда ли это... 99 %")
+    await message.delete()
     if question == None:
         RANDOM = str(1)
     else:
@@ -294,7 +307,7 @@ async def _8ball(ctx, *, question: str = None):
              '4' : 'Это правда.',
              '5' : 'Это не правда.',
              '6' : 'Хуй знает',
-             '7' : 'Это правда.:',
+             '7' : 'Это правда.',
              '8' : 'Это не правда.',
              '9' : 'Хуй знает.',
             '10' : 'Это правда.',
@@ -305,6 +318,7 @@ async def _8ball(ctx, *, question: str = None):
             '15' : 'Хуй знает.',
             '16' : 'Это правда.'}
     await ctx.send(answer[RANDOM])
+    await ctx.message.add_reaction('🖕')
 
 @Bot.command()
 async def say(ctx, *, message):
