@@ -401,4 +401,8 @@ async def music(ctx):
     emb.add_field( name = ':white_large_square:    | `{}queue`'.format( "#" ), value = '**Очередь.**')
     await ctx.send(embed=emb)
 
+@Bot.command(aliases=['status'])
+async def st(ctx):
+  await ctx.send(f'Задержка DISCORD составляет {round(Bot.latency * 1000)} мс.')
+
 Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
