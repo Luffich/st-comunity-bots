@@ -11,6 +11,10 @@ import datetime, pyowm
 import json
 import nekos
 from discord.utils import get
+import re
+from urllib.parse import urlparse
+import time
+import platform
 
 import os
 from time import sleep
@@ -347,6 +351,7 @@ async def help(ctx):
     emb.add_field( name =':dagger:    | `{}info`'.format( "#" ), value = '**Информация о пользователе.**')
     emb.add_field( name =':knife:    | `{}say`'.format( "#" ), value = '**Сообщение от имени бота.**')
     emb.add_field( name =':musical_note:    | `{}music`'.format( "#" ), value = '**Музыка**')
+    emb.add_field( name =':joystick:    | `{}serverinfo`'.format( "#" ), value = '**Информация о сервере.**')
     await ctx.send(embed=emb)
 
 @Bot.command()
@@ -389,5 +394,34 @@ async def music(ctx):
 @Bot.command(aliases=['status'])
 async def st(ctx):
   await ctx.send(f'Задержка DISCORD составляет {round(Bot.latency * 1000)} мс.')
+
+@Bot.command()
+async def serverinfo(ctx):
+    pythonVersion = platform.python_version()
+    dpyVersion = discord.__version__
+    serverCount = len(Bot.guilds)
+    memberCount = str(ctx.guild.member_count)
+    role_count = len(ctx.guild.roles)
+    list_of_bots = [Bot.mention for Bot in ctx.guild.members if Bot.bot]
+    staff_roles = ["⠀⠀⠀ ⠀ Правитель ⠀ ⠀⠀⠀", "⠀⠀⠀ ⠀ Модератор ⠀ ⠀⠀⠀"]
+    id = str(ctx.guild.id)
+    region = str(ctx.guild.region)
+    embed = discord.Embed(title=f'{Bot.user.name} Статистика', description='\uFEFF', colour=ctx.author.colour, timestamp=ctx.message.created_at)
+    embed.add_field(name='Bot Version:', value='1.0')
+    embed.add_field(name='Версия питона:', value=pythonVersion)
+    embed.add_field(name='Discord.Py версия', value=dpyVersion)
+    embed.add_field(name="Server ID", value=id)
+    embed.add_field(name='Уровень Верификации', value=str(ctx.guild.verification_level))
+    embed.add_field(name='Высшая роль:', value="Создатель вирусов")
+    embed.add_field(name='Количество ролей', value=str(role_count))
+    embed.add_field(name="Регион сервера", value=":flag_ru: | Russia")
+    embed.add_field(name="Сервер создан:", value="5 июн. 2021 г., 17:19:58")
+    embed.add_field(name='Число гильдий:', value=serverCount)
+    embed.add_field(name='Число всех учасников:', value=memberCount)
+    embed.add_field(name='Разработчик бота:', value="<@853349852218130432>")
+    embed.set_footer(text=f"{Bot.user.name}")
+    embed.set_author(name=Bot.user.name, icon_url=Bot.user.avatar_url)
+    embed.set_thumbnail(url='https://thumbs.gfycat.com/DeliriousResponsibleAiredaleterrier-small.gif')
+    await ctx.send(embed=embed)
 
 Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
