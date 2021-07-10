@@ -367,7 +367,7 @@ async def hello( ctx, member: discord.Member ):
 @Bot.command()
 @commands.has_permissions(administrator = True)
 async def jertva( ctx, member: discord.Member ):
-    await member.send( f'{ member.mention }, алё хуесос тебя зовёт очень крутой человек { ctx.author.mention }')
+    await member.send( f'{ member.mention }, алё хуесос тебя зовёт очень крутой человек { ctx.author.mention } discord.gg/stcomunity')
     await ctx.message.delete()
 
 @Bot.command()
