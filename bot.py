@@ -177,101 +177,80 @@ async def smoke(ctx):
     embed.set_image(url = random.choice(smokee))
     await ctx.send(embed = embed)
 
-@Bot.command(aliases=['бан'])
+@Bot.command()
 @commands.has_permissions(view_audit_log=True)
-async def ban(ctx, member: discord.Member, *, reason=None):
-    await ctx.message.delete()
-    await member.ban(reason = reason)
-    colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969] #цвет в формате 0xHEX
-    emb = discord.Embed(title=f':octagonal_sign: | Блокировка Пользователя __{member.name}__',description=f'\n:red_square: **Подробная информация про бан:**',color = random.choice(colours5))
-    emb.set_footer(text=f'| Вызвано Администратором: {ctx.author.name}', icon_url= ctx.author.avatar_url)
-    emb.set_thumbnail(url= member.avatar_url)
-    emb.add_field(name=':shield:| Имя Нарушителя:',value = member.mention)
-    emb.add_field(name=':drum:| Айди Нарушителя:',value = member.id)
-    emb.add_field(name=':ring:| Тег Нарушителя:',value = member.discriminator)
-    emb.add_field(name=':joystick:| Причина Нарушения:',value = reason)
-    emb.add_field(name=':beginner:| Дата регестрации аккаунта:',value = ctx.author.created_at.strftime("%d.%m.%Y %H:%M:%S"))
-    emb.add_field(name=':notebook:| Дата присоедениния: ', value = f'{ctx.author.joined_at.strftime("%d.%m.%Y %H:%M:%S")}')
-    await member.send( f'{ member.mention }, Вы получили **бан** на сервере **ST Comunity!** **Выдал бан:** { ctx.author.mention }')
-    await ctx.send(embed=emb)
-
-@Bot.command(aliases=['кик'])
-@commands.has_permissions(view_audit_log=True)
-async def kick(ctx, member: discord.Member, *, reason=None):
-    await ctx.message.delete()
-    await member.kick(reason = reason)
-    colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969] #цвет в формате 0xHEX
-    emb = discord.Embed(title=f':octagonal_sign: | Кик Пользователя __{member.name}__',description=f'\n:red_square: **Подробная информация про Кик:**',color = random.choice(colours5))
-    emb.set_footer(text=f'| Вызвано Администратором: {ctx.author.name}', icon_url= ctx.author.avatar_url)
-    emb.set_thumbnail(url= member.avatar_url)
-    emb.add_field(name=':shield:| Имя Нарушителя:',value = member.mention)
-    emb.add_field(name=':drum:| Айди Нарушителя:',value = member.id)
-    emb.add_field(name=':ring:| Тег Нарушителя:',value = member.discriminator)
-    emb.add_field(name=':joystick:| Причина Нарушения:',value = reason)
-    emb.add_field(name=':beginner:| Дата регестрации аккаунта:',value = ctx.author.created_at.strftime("%d.%m.%Y %H:%M:%S"))
-    emb.add_field(name=':notebook:| Дата присоедениния: ', value = f'{ctx.author.joined_at.strftime("%d.%m.%Y %H:%M:%S")}')
-    await member.send( f'{ member.mention }, Вас **выгнали** из сервера **ST Comunity!** **Выгнал:** { ctx.author.mention }')
-    await ctx.send(embed=emb)
+async def ban(ctx, member: discord.Member, days: int = 1, reason=None):
+    await member.ban(reason=reason)
+    e = discord.Embed(title=f"{ctx.author.name} забанил: {member.name}\n", description=f'Причина: {reason}', colour=discord.Color.red())
+    await member.send(embed=e)
+    await ctx.send(embed=e)
+    await member.send( f'{ member.mention }, Вас `забанили` на сервере **ST Comunity!** `Забанил:` { ctx.author.mention }')
 
 @Bot.command()
 @commands.has_permissions(view_audit_log=True)
-async def mute(ctx,member:discord.Member,time:int,reason):
-    await member.send( f'{ member.mention }, Вы получили **мут** на сервере **ST Comunity!** **Выдал мут:** { ctx.author.mention }')
+async def kick(ctx, member: discord.Member, reason=None):
+    await member.kick(reason=reason)
+    e = discord.Embed(title=f"{ctx.author.name} кикнул: {member.name}\n", description=f'Причина: {reason}', colour=discord.Color.red())
+    await member.send(embed=e)
+    await ctx.send(embed=e)
+    await member.send( f'{ member.mention }, Вас `кикнули` с сервера **ST Comunity!** `Кикнул:` { ctx.author.mention }')
+
+@Bot.command()
+@commands.has_permissions(view_audit_log=True)
+async def mute(ctx,member:discord.Member,time:int,reason=None):
     await ctx.message.delete()
     colours5 = [0xff0000, 0xff9f00, 0x72ff00, 0x00ff6d, 0x00acff, 0x0200ff, 0xc500ff, 0xff0053, 0xFA8072, 0xFF7F50, 0x00CED1, 0x800080, 0x696969] #цвет в формате 0xHEX
-    muterole = discord.utils.get(ctx.guild.roles,id=858397358415675442)
-    emb = discord.Embed(title=f':octagonal_sign: | Мут Пользователя __{member.name}__',description=f'\n:red_square: **Подробная информация про мут:**',color = random.choice(colours5))
-    emb.set_footer(text=f'| Вызвано Администратором: {ctx.author.name}', icon_url= ctx.author.avatar_url)
-    emb.set_thumbnail(url= member.avatar_url)
-    emb.add_field(name=':shield:| Имя Нарушителя:',value = member.mention)
-    emb.add_field(name=':drum:| Айди Нарушителя:',value = member.id)
-    emb.add_field(name=':ring:| Тег Нарушителя:',value = member.discriminator)
-    emb.add_field(name=':joystick:| Причина Нарушения:',value = reason)
-    emb.add_field(name=':beginner:| Дата регестрации аккаунта:',value = ctx.author.created_at.strftime("%d.%m.%Y %H:%M:%S"))
-    emb.add_field(name=':notebook:| Дата присоедениния: ', value = f'{ctx.author.joined_at.strftime("%d.%m.%Y %H:%M:%S")}')
+    muterole = discord.utils.get(ctx.guild.roles,id=852141218585509888)
+    e = discord.Embed(title=f"{ctx.author.name} заглушил: {member.name}\n", description=f'Причина: {reason}', colour=discord.Color.red())
     await member.add_roles(muterole)
-    await ctx.send(embed=emb)
+    await ctx.send(embed=e)
+    await member.send( f'{ member.mention }, Вас `заглушили` на сервере **ST Comunity!** `Замутил:` { ctx.author.mention }')
     await asyncio.sleep(time * 60)
     await member.remove_roles(muterole)
 
-@Bot.command()
-async def unban(ctx,*,member):
-    await ctx.message.delete()
-    banned_users=await ctx.guild.bans()
-    member_name, member_discriminator=member.split('#')
-    for ban_entry in banned_users:
-        user=ban_entry.user
-        if (user.name, user.discriminator)==(member_name,member_discriminator):
-            await ctx.guild.unban(user)
-            await ctx.send(f'Разбанен {user}')
-            return
+@Bot.command(pass_context=True)
+@commands.has_permissions(view_audit_log=True)
+async def unban(ctx, *, member):
+    banned_users = await ctx.guild.bans()
+    await ctx.channel.purge(limit=1)
 
+    for ban_entry in banned_users:
+        user = ban_entry.user
+        await ctx.guild.unban(user)
+        emb = discord.Embed(colour=discord.Color.red())
+        emb.add_field(name='Розбан пользователя', value='Пользователь {} был розбанен!'.format(member))
+        await ctx.send(embed=emb)
+        return
 
 @Bot.command()
 @commands.has_permissions(view_audit_log=True)
-async def unmute(ctx,member:discord.Member,reason):
+async def unmute(ctx,member:discord.Member,reason=None):
     await ctx.message.delete()
-    channel = Bot.get_channel(858405446510575666)
-    muterole = discord.utils.get(ctx.guild.roles,id=858397358415675442)
-    emb = discord.Embed(title="Анмут",color=0x2f3136)
-    emb.add_field(name='Модератор',value=ctx.message.author.mention,inline=False)
-    emb.add_field(name='Не нарушитель',value=member.mention,inline=False)
-    emb.set_thumbnail(url=member.avatar_url)
-    emb.set_footer(text=f"Выдал анмут: {ctx.message.author}",icon_url=ctx.message.author.avatar_url)
-    emb.set_author(name=ctx.message.author,icon_url=ctx.message.author.avatar_url)
-    await channel.send (embed = emb)
+    muterole = discord.utils.get(ctx.guild.roles,id=852141218585509888)
+    e = discord.Embed(title=f"{ctx.author.name} снял заглушку с: {member.name}\n", description=f'Причина анмута: {reason}', colour=discord.Color.red())
+    await ctx.send (embed = e)
     await member.remove_roles(muterole)
-    await member.send( f'{ member.mention }, С вас сняли **мут** на сервере **ST Comunity!** **Снял мут:** { ctx.author.mention }')
+    await member.send( f'{ member.mention }, С вас сняли `мут` на сервере **ST Comunity!** **Снял мут:** { ctx.author.mention }')
 
 @Bot.event
 async def on_ready():
     print("Бот ахуенно работает бро!")
     await Bot.change_presence(status=discord.Status.idle,activity=Activity(name="за сервером.",type=ActivityType.watching))
+@Bot.event
+async def on_command_error(ctx, error):
+  if isinstance(error, commands.MissingPermissions):
+    await ctx.send("Алё уёбок у тебя нет разрешения, необходимых для этой команды, так что идёшь нахуй.")
+    return
 
-@Bot.command()
+  raise error
+
+@Bot.command(pass_context = True)
 @commands.has_permissions(view_audit_log=True)
-async def clear(ctx,amount=10):
-    deleted = await ctx.message.channel.purge(limit=amount)
+async def clear(ctx, amount=1, limit_amount=1):
+    await ctx.channel.purge(limit=amount+1)
+    await ctx.channel.purge(limit=limit_amount)
+    author = ctx.message.author
+    await ctx.send(f'```Сэр, пропали сообщения, я не знаю сколько, может вы знаете?\n' + f'P.S Кол-во({amount})\n' f'P.S.S Удалил - {author}```')
 
 @Bot.command()
 async def info(ctx,member:discord.Member):
@@ -392,7 +371,7 @@ async def music(ctx):
     await ctx.send(embed=emb)
 
 @Bot.command(aliases=['status'])
-async def st(ctx):
+async def ping(ctx):
   await ctx.send(f'Задержка DISCORD составляет {round(Bot.latency * 1000)} мс.')
 
 @Bot.command()
