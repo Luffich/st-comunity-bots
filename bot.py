@@ -239,7 +239,7 @@ async def on_ready():
 @Bot.event
 async def on_command_error(ctx, error):
   if isinstance(error, commands.MissingPermissions):
-    await ctx.send("Алё уёбок у тебя нет разрешения, необходимых для этой команды, так что идёшь нахуй.")
+    await ctx.send("Алё уёбок у тебя нет разрешений, необходимых для этой команды, так что идёшь нахуй.")
     return
 
   raise error
