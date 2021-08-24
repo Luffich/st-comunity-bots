@@ -403,4 +403,4 @@ async def serverinfo(ctx):
     embed.set_thumbnail(url='https://thumbs.gfycat.com/DeliriousResponsibleAiredaleterrier-small.gif')
     await ctx.send(embed=embed)
 
-Bot.run("ODU4MzcyMjE4NjI2NTA2NzUy.YNdLbA.Tdwsul4TGpidnRqngotpCp-UOuE")
+Bot.run("ТОКЕН")
