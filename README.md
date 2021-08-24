@@ -8,5 +8,5 @@
 
 1. Скачиваем репозиторий
 2. Настраиваем `bot.py` ([Discord Token](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot))
-3. Устанавливаем requirements.txt
+3. Устанавливаем `requirements.txt`
 4. Открываем cmd через папку, и пишем `python bot.py`
